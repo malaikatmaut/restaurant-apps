@@ -1,4 +1,4 @@
-class AppBar extends HTMLElement {
+class NavBar extends HTMLElement {
   connectedCallback() {
     this.render();
   }
@@ -11,16 +11,16 @@ class AppBar extends HTMLElement {
           <h1><a href="">eResto</a></h1>
         </div>
         <ul class="nav-list">
-          <li class="nav-item"><a href="index.html">Home</a></li>
-          <li class="nav-item"><a href="#">Favorite</a></li>
-          <li class="nav-item"><a href="https://github.com/malaikatmaut">About Us</a></li>
+          <li class="nav-item"><a href="#/home">Home</a></li>
+          <li class="nav-item"><a href="#/favorite">Favorite</a></li>
+          <li class="nav-item"><a href="https://www.linkedin.com/in/ryanrvldo/">Contact</a></li>
         </ul>
         <button class="menu-toggle">
-          <img id="menu-img" src="./images/menu.svg" alt="Navbar Button">
+          <img id="menu-img" src="./images/menu.svg" alt="">
         </button>
       </nav>
     `;
   }
 }
 
-customElements.define('app-bar', AppBar);
+customElements.define('nav-bar', NavBar);

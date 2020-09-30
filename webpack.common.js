@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -22,13 +23,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png)$/,
+        test: /\.(jpe?g|png|svg)$/,
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: `[name].[contentHash].[ext]`,
-              outputPath: 'public/images/',
+              name: '[name].[ext]',
+              outputPath: 'images/',
             },
           },
         ],
@@ -37,6 +38,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: './src/public/icons/favicon.ico',
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
     }),
@@ -47,6 +49,9 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+    new WorkboxWebpackPlugin.InjectManifest({
+      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
     }),
   ],
 };

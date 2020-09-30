@@ -1,26 +1,24 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-import '../scripts/component/restaurant-list.js';
-import './component/app-bar.js';
-import './component/footer-bar.js';
-import restaurantsData from './data/DATA.json';
+import swRegister from './utils/sw-register';
+import App from './view/app';
 
-const navListElement = document.querySelector('nav ul.nav-list');
-const menuToggleElement = document.querySelector('button.menu-toggle');
-const menuImgElement = document.querySelector('button.menu-toggle img');
-const navBarElement = document.querySelector('nav');
-
-menuToggleElement.addEventListener('click', event => {
-  navListElement.classList.toggle('open');
-  if (navListElement.classList.contains('open')) {
-    navBarElement.style.position = 'fixed';
-    menuImgElement.src = './images/close.svg';
-  } else {
-    navBarElement.style.position = 'relative';
-    menuImgElement.src = './images/menu.svg';
-  }
-  event.stopPropagation();
+const app = new App({
+  button: document.querySelector('button.menu-toggle'),
+  buttonIcon: document.querySelector('button.menu-toggle img'),
+  drawer: document.querySelector('nav ul.nav-list'),
+  drawerMenu: document.querySelectorAll('li.nav-item a'),
+  navbar: document.querySelector('nav'),
+  footerbar: document.querySelector('footer'),
+  content: document.querySelector('#mainPage'),
+  loader: document.querySelector('.loader'),
 });
 
-const restaurantsElement = document.querySelector('restaurant-list.top-list');
-restaurantsElement.restaurants = restaurantsData.restaurants;
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
+  swRegister();
+});

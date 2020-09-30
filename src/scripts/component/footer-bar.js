@@ -10,7 +10,7 @@ class FooterBar extends HTMLElement {
           <img src="./images/fork.svg" alt="Brand Logo" class="brand-logo">
           <h1><a href="">eResto</a></h1>
         </div>
-        <p>&copy;${new Date().getFullYear()} Rian Rivaldo. All Rights Reserved.
+        <p>&copy;${new Date().getFullYear()} <a href="https://github.com/ryanrvldo">Rian Rivaldo</a>. All Rights Reserved.
         </p>
       </footer>
     `;

@@ -1,4 +1,5 @@
-import './restaurant-item.js';
+import { createEmptyDataTemplate, createErrorTemplate } from '../view/templates/template-creator';
+import './restaurant-item';
 
 class RestaurantList extends HTMLElement {
   set restaurants(restaurantList) {
@@ -7,15 +8,19 @@ class RestaurantList extends HTMLElement {
   }
 
   render() {
-    this._restaurants.forEach(restaurant => {
+    this._restaurants.forEach((restaurant) => {
       const element = document.createElement('restaurant-item');
       element.restaurant = restaurant;
       this.appendChild(element);
     });
   }
 
-  renderError(msg) {
-    this.innerHTML += /* html */ `<h6>Something Error. Check: ${msg}</h6>`;
+  renderEmptyData(message) {
+    this.innerHTML = createEmptyDataTemplate(message);
+  }
+
+  renderError(message) {
+    this.innerHTML = createErrorTemplate(message);
   }
 }
 

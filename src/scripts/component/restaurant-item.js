@@ -1,3 +1,5 @@
+import CONFIG from '../globals/config';
+
 class RestaurantItem extends HTMLElement {
   connectedCallback() {
     this.render();
@@ -9,17 +11,19 @@ class RestaurantItem extends HTMLElement {
   }
 
   render() {
+    const imgSourceUrl = CONFIG.BASE_IMAGE_URL + CONFIG.BASE_IMAGE_SIZE.SMALL
+      + this._restaurant.pictureId;
     this.innerHTML = /* html */ `
       <article class="card">
-          <img src="${this._restaurant.pictureId}" alt="Restaurant Picture" class="card-img">
-          <h3 class="card-title"><a href="#">${this._restaurant.name}</a></h3>
-          <div class="restaurant-details">
-            <div class="rating">
-              <img src="./images/star.svg" alt="Restaurant Picture" style="height: 20px;">
+          <img src="${imgSourceUrl}" alt="${this._restaurant.name}" class="card-img">
+          <h3 class="card-title"><a href="#/detail/${this._restaurant.id}">${this._restaurant.name}</a></h3>
+          <div class="restaurant">
+            <div class="restaurant-rating">
+              <img src="./images/star.svg" alt="" style="height: 20px;">
               <p>${this._restaurant.rating}</p>
             </div>
-            <div class="location">
-              <img src="./images/geo.svg" alt="Restaurant Picture" style="height: 20px;">
+            <div class="restaurant-location">
+              <img src="./images/geo.svg" alt="" style="height: 20px;">
               <p class="restaurant-city">${this._restaurant.city}</p>
             </div>
           </div>
