@@ -1,6 +1,4 @@
 const CONFIG = {
-  APP_NAME: 'eResto',
-  CACHE_NAME: 'app-shell',
   BASE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/',
   BASE_IMAGE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/images/',
   BASE_IMAGE_SIZE: {

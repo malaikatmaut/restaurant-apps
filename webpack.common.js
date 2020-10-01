@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -50,8 +50,26 @@ module.exports = {
         },
       ],
     }),
-    new WorkboxWebpackPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, 'src/scripts/sw.js'),
+    new GenerateSW({
+      swDest: 'sw.js',
+      skipWaiting: true,
+      clientsClaim: true,
+      cleanupOutdatedCaches: true,
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot.com/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'dicoding-api',
+            cacheableResponse: {
+              statuses: [0, 200],
+            },
+            expiration: {
+              maxAgeSeconds: 60 * 60 * 12,
+            },
+          },
+        },
+      ],
     }),
   ],
 };
