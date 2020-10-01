@@ -52,7 +52,7 @@ const createFavoritedButtonTemplate = () => /* html */ `
 
 const createErrorTemplate = (message) => /* html */ `
   <div class="content-not-found">
-    <img src="images/undraw_feeling_blue.svg" alt= class="img-error">
+    <img src="images/undraw_feeling_blue.svg" alt class="img-error">
     <h3 class="message-error">${message}</h3>
   </div>
 `;
