@@ -15,4 +15,6 @@ class ReviewItem extends HTMLElement {
   }
 }
 
-customElements.define('review-item', ReviewItem);
+if (!customElements.get('review-item')) {
+  customElements.define('review-item', ReviewItem);
+}

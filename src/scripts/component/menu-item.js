@@ -13,4 +13,6 @@ class MenuItem extends HTMLElement {
   }
 }
 
-customElements.define('menu-item', MenuItem);
+if (!customElements.get('menu-item')) {
+  customElements.define('menu-item', MenuItem);
+}

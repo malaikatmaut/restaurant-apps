@@ -30,4 +30,6 @@ class ReviewList extends HTMLElement {
   }
 }
 
-customElements.define('review-list', ReviewList);
+if (!customElements.get('review-list')) {
+  customElements.define('review-list', ReviewList);
+}

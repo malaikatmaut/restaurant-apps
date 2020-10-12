@@ -13,7 +13,16 @@ module.exports = function (config) {
     // list of files / patterns to load in the browser
     files: [
       'specs/**/*Spec.js',
+      {
+        pattern: 'src/public/images/*.*', watched: false, included: false, served: true, nocache: false,
+      },
     ],
+
+    proxies: {
+      '/images/undraw_empty.svg': '/base/src/public/images/undraw_empty.svg',
+      '/images/star.svg': '/base/src/public/images/star.svg',
+      '/images/geo.svg': '/base/src/public/images/geo.svg',
+    },
 
     // list of files / patterns to exclude
     exclude: [],

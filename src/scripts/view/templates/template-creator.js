@@ -10,7 +10,7 @@ const createRestaurantDetailTemplate = (restaurant) => {
 
   return /* html */ `
     <article class="restaurant-image">
-      <img src="${imgSourceUrl}" alt="${restaurant.name}">
+      <img src="${imgSourceUrl}" alt="${restaurant.name}" class="restaurant-img">
     </article>
     <aside class="restaurant-overview">
       <h1 class="restaurant-name">${restaurant.name}</h1>
@@ -42,12 +42,12 @@ const createReviewsContentTemplate = (reviews) => {
   return reviewListElement.innerHTML;
 };
 
-const createFavoriteButtonTemplate = () => /* html */ `
+const createFavoriteRestaurantButtonTemplate = () => /* html */ `
   <button id="favoriteButton" class="favorite" aria-label="favorite this restaurant">♡</button>
 `;
 
-const createFavoritedButtonTemplate = () => /* html */ `
-  <button id="favoriteButton" class="favorite" aria-label="favorite this restaurant">♥</button>
+const createUnfavoriteRestaurantButtonTemplate = () => /* html */ `
+  <button id="favoriteButton" class="favorite" aria-label="unfavorite this restaurant">♥</button>
 `;
 
 const createErrorTemplate = (message) => /* html */ `
@@ -68,8 +68,8 @@ export {
   createRestaurantDetailTemplate,
   createMenuContentTemplate,
   createReviewsContentTemplate,
-  createFavoriteButtonTemplate,
-  createFavoritedButtonTemplate,
+  createFavoriteRestaurantButtonTemplate,
+  createUnfavoriteRestaurantButtonTemplate,
   createErrorTemplate,
   createEmptyDataTemplate,
 };

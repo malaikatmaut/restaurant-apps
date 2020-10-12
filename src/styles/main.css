@@ -118,8 +118,13 @@ footer.load {
 
 /** content */
 .content {
-  padding: 3em 6em;
+  padding: 2em 0;
   background-color: #d8eefe;
+}
+
+.collections {
+  margin: auto;
+  width: 80%;
 }
 
 .collections-label {
@@ -134,9 +139,13 @@ footer.load {
 /** restaurant list */
 .restaurant-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-top: 32px;
+}
+
+.restaurant-empty {
+  display: inline !important;
 }
 
 .card {
@@ -144,7 +153,6 @@ footer.load {
   padding: 32px;
   box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  max-height: 400px;
   overflow: hidden;
 }
 
@@ -153,10 +161,9 @@ footer.load {
 }
 
 .card-img {
-  width: 100%;
-  height: auto;
-  max-height: 182px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  height: 182px !important;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card-title {
@@ -168,6 +175,11 @@ footer.load {
   justify-content: space-between;
   align-items: center;
   margin: 8px 0;
+}
+
+.restaurant-img {
+  width: 100%;
+  height: auto;
 }
 
 .restaurant-rating,
@@ -203,11 +215,6 @@ footer {
   row-gap: 1em;
   max-width: 70%;
   margin: 3em auto;
-}
-
-.restaurant-image img {
-  width: 100%;
-  height: auto;
 }
 
 .restaurant-categories {
@@ -445,17 +452,20 @@ section.favorites {
 /** breakpoints */
 
 /* laptop */
-@media screen and (min-width: 1100px) {
-  nav ul.nav-list {
-    width: 25%;
+
+@media screen and (min-width: 1800px) {
+  .card-img {
+    height: 282px !important;
   }
 
   .restaurant-list {
     grid-template-columns: repeat(4, 1fr);
   }
+}
 
-  .card {
-    max-height: 400px;
+@media screen and (min-width: 1100px) {
+  nav ul.nav-list {
+    width: 25%;
   }
 }
 

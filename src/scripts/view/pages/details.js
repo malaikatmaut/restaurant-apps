@@ -1,8 +1,9 @@
 import DataSource from '../../data/data-source';
 import UrlParser from '../../routes/url-parser';
-import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
+import FavoriteButtonPresenter from '../../utils/favorite-button-presenter';
 import TabLayoutInitiator from '../../utils/tab-layout-initiator';
 import { createEmptyDataTemplate, createErrorTemplate, createRestaurantDetailTemplate } from '../templates/template-creator';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 
 const Details = {
   async render() {
@@ -56,8 +57,9 @@ const Details = {
   },
 
   _setupFavoriteButton(restaurant) {
-    FavoriteButtonInitiator.init({
+    FavoriteButtonPresenter.init({
       favoriteButtonContainer: document.querySelector('div#favoriteButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.id,
         name: restaurant.name,
