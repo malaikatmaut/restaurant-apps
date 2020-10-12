@@ -7,12 +7,7 @@ const emptyFavoriteRestaurantsScenario = () => {
   I.seeElement('.content-not-found');
 };
 
-const clickFavoriteButtonScenario = () => {
-  I.seeElement('#favoriteButton');
-  I.click('#favoriteButton');
-};
-
-const favoriteOneRestaurantScenario = async () => {
+const toDetailRestaurantPageScenario = async () => {
   I.amOnPage('/');
 
   I.seeElement('.card-title a');
@@ -20,6 +15,22 @@ const favoriteOneRestaurantScenario = async () => {
   const firstRestaurant = locate('.card-title a').first();
   const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
   I.click(firstRestaurant);
+
+  return firstRestaurantTitle;
+};
+
+const toReviewsTabDetailPageScenario = () => {
+  I.see('Reviews', 'button#reviews');
+  I.click('button#reviews');
+};
+
+const clickFavoriteButtonScenario = () => {
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+};
+
+const favoriteOneRestaurantScenario = async () => {
+  const firstRestaurantTitle = await toDetailRestaurantPageScenario();
 
   clickFavoriteButtonScenario();
 
@@ -36,7 +47,10 @@ const favoriteOneRestaurantScenario = async () => {
 };
 
 module.exports = {
+  assert,
   emptyFavoriteRestaurantsScenario,
+  toDetailRestaurantPageScenario,
+  toReviewsTabDetailPageScenario,
   clickFavoriteButtonScenario,
   favoriteOneRestaurantScenario,
 };

@@ -15,6 +15,6 @@ class MenuList extends HTMLElement {
   }
 }
 
-if (!customElements.get('menu-item')) {
+if (!customElements.get('menu-list')) {
   customElements.define('menu-list', MenuList);
 }
