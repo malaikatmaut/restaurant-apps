@@ -14,16 +14,38 @@ All available scripts that you can using for development, production, or test th
 npm run start-dev
 ```
 
-### Create production apss
+### Create production configuration
+
+> Without bundle analyzer
 
 ```bash
 npm run build
 ```
 
-### Testing
+> With bundle analyzer
+
+```bash
+npm run build-local
+```
+
+> then in new terminal
+
+```bash
+npm run build-image
+```
+
+> All production folder builded in `dist/`
+
+### Integration Test
 
 ```bash
 npm run test
+```
+
+### End To End Test
+
+```bash
+npm run e2e
 ```
 
 ## Demo

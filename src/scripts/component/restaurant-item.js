@@ -15,8 +15,8 @@ class RestaurantItem extends HTMLElement {
       + this._restaurant.pictureId;
     this.innerHTML = /* html */ `
       <article class="card">
-          <img src="${imgSourceUrl}" alt="${this._restaurant.name}" class="card-img restaurant-img">
-          <h3 class="card-title"><a href="#/detail/${this._restaurant.id}">${this._restaurant.name}</a></h3>
+          <img data-src="${imgSourceUrl}" alt="${this._restaurant.name}" class="card-img restaurant-img lazyload">
+          <h2 class="card-title"><a href="#/detail/${this._restaurant.id}">${this._restaurant.name}</a></h2>
           <div class="restaurant">
             <div class="restaurant-rating">
               <img src="./images/star.svg" alt="" style="height: 20px;">

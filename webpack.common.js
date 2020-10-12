@@ -6,8 +6,8 @@ const path = require('path');
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
   output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -47,6 +47,9 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/images/*.jpg'],
+          },
         },
       ],
     }),
@@ -65,7 +68,7 @@ module.exports = {
               statuses: [0, 200],
             },
             expiration: {
-              maxAgeSeconds: 60 * 60 * 12,
+              maxAgeSeconds: 60 * 60 * 24,
             },
           },
         },

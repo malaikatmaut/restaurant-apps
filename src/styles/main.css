@@ -65,8 +65,7 @@ nav ul.nav-list {
   align-items: center;
 }
 
-.brand h1 a {
-  font-weight: 500;
+.brand-name {
   font-size: 24px;
   font-family: 'Archivo Black', sans-serif;
 }
@@ -89,21 +88,45 @@ button.menu-toggle img {
 }
 
 /** hero */
-.hero {
-  display: flex;
-  align-items: center;
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 55vh;
+  column-gap: 0px;
+  row-gap: 0px;
+  align-content: center;
   justify-content: center;
-  height: 55vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../public/images/hero-image_4.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+.hero-image-div {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.hero-overlay-div {
+  grid-area: 1 / 1 / 2 / 2;
+  max-width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.hero-text-div {
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  align-items: center;
+}
+
+.hero-image {
+  display: grid;
+  width: 100%;
+  min-width: 350px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-text {
   color: #fffffe;
   text-align: center;
+  font-size: 2.8em;
+  padding: 24px;
 }
 
 /** main */
@@ -129,6 +152,10 @@ footer.load {
 
 .collections-label {
   font-size: 1.8em;
+}
+
+.collections-desc {
+  color: #094067;
 }
 
 .collections-label,
@@ -498,7 +525,6 @@ section.favorites {
 
   .hero-text {
     font-size: 2.5em;
-    width: 75%;
   }
 
   .card-img {
